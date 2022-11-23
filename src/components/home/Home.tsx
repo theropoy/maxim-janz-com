@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
-//import "../../styles/home/Home.css"
+import React, { useEffect, useRef } from "react";
 import Header from "../Header";
 import Hero from "./Hero";
 import About from "./About";
@@ -8,15 +7,13 @@ import Portfolio from "./Portfolio";
 import Skills from "./Skills";
 import Contact from "./Contact";
 
-import styles from "../../styles/Text.module.css";
-
 import Helmet from "react-helmet";
 
 interface Props {
 	setFooterSticky: (x: boolean) => void;
 }
 
-// This is the home page
+// This is the german version of the home page
 const Home: React.FC<Props> = ({ setFooterSticky }) => {
 	useEffect(() => {
 		setFooterSticky(false);
