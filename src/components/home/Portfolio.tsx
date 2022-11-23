@@ -1,5 +1,4 @@
 import React from "react";
-//import "../../styles/home/Portfolio.css"
 import { useEffect, useState } from "react";
 
 import webImg from "../../assets/portfolio/web.svg";
@@ -24,12 +23,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay } from "swiper";
 
-interface portfolioProps {
+interface Props {
 	reff: React.MutableRefObject<HTMLDivElement | null>;
 	ger: boolean;
 }
 
-const Portfolio2: React.FC<portfolioProps> = ({ reff, ger }) => {
+// Part of home
+// shows all projects
+const Portfolio: React.FC<Props> = ({ reff, ger }) => {
+	// List of project websites
 	const listOfImagesWebsite = [
 		{ img: gymImg, color: true },
 		{ img: hotelImg, color: false },
@@ -39,6 +41,7 @@ const Portfolio2: React.FC<portfolioProps> = ({ reff, ger }) => {
 		{ img: metalImg, color: false },
 	];
 
+	// List of project apps
 	const listOfImagesMobile = [
 		{ path: mobileImg, txt: "Maze & Cube", color: false },
 		{ path: mobile1Img, txt: "Virus Destroyer", color: true },
@@ -46,26 +49,16 @@ const Portfolio2: React.FC<portfolioProps> = ({ reff, ger }) => {
 		{ path: mobile3Img, txt: "Isekai Now", color: true },
 	];
 
+	// List of project miscellaneous
 	const listOfImagesOther = [
 		{ path: andereImg, txt: "Web: Maze & Cube", color: true },
 		{ path: andere1Img, txt: "PC: Dungeons & Adventures", color: false },
 	];
 
-	const [images, setImages] = useState(listOfImagesWebsite.map((img, i) => i));
-	const [refresh, setRefresh] = useState(1);
-
-	const makeImageItem = (img: { path: string; txt: string }, key: number) => {
-		return (
-			<div className={styles.app} key={key}>
-				<img src={img.path} alt="" />
-				<p>{img.txt}</p>
-			</div>
-		);
-	};
-
-	const [width, setWidth] = useState<number>(window.innerWidth);
+	// State tracks if website is viewed on small screen
 	const [mobile, setMobile] = useState<boolean>(false);
 
+	// resize handler
 	function handleWindowSizeChange() {
 		if (window.innerWidth <= 700) {
 			setMobile(true);
@@ -86,10 +79,6 @@ const Portfolio2: React.FC<portfolioProps> = ({ reff, ger }) => {
 			window.removeEventListener("resize", handleWindowSizeChange);
 		};
 	}, []);
-
-	useEffect(() => {
-		console.log(mobile);
-	}, [mobile]);
 
 	return (
 		<section className={styles.container} ref={reff}>
@@ -190,4 +179,4 @@ const Portfolio2: React.FC<portfolioProps> = ({ reff, ger }) => {
 	);
 };
 
-export default Portfolio2;
+export default Portfolio;
