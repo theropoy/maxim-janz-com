@@ -1,0 +1,72 @@
+.impressum {
+
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.impressum-container {
+    margin: 3rem 10% 0 10%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.impressum-content {
+    padding: 1rem;
+
+    background: rgb(0,0,0);
+    background: linear-gradient(153deg, rgba(0,0,0,.3) 0%, rgba(66,66,66,.3) 100%);
+
+    border-radius: 1rem;
+}
+
+.impressum h2 {
+    font-size: 2rem;
+    color: rgb(255, 248, 248);
+    text-align: center;
+}
+
+.impressum h3 {
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+
+    font-size: 1.3rem;
+    text-decoration: underline;
+    color: rgb(233, 233, 233);
+}
+
+.impressum p {
+    font-size: 1rem;
+    color: white;
+}
+
+.impressum a {
+    color: white;
+    text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+    .impressum h2 {
+        font-size: 2rem;
+        color: rgb(255, 248, 248);
+        text-align: center;
+    }
+    
+    .impressum h3 {
+        margin-top: 1.5rem;
+        margin-bottom: .5rem;
+    
+        font-size: 1.1rem;
+        text-align: center;
+    }
+    
+    .impressum p {
+        text-align: center;
+        font-size: .8rem;
+    }
+    
+    .impressum a {
+        text-decoration: underline;
+    }
+}

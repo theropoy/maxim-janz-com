@@ -1,0 +1,29 @@
+footer {
+    width: 100%;
+    margin-top: 5rem;
+
+    padding: .5rem;
+    
+    background-color: hsl(200, 56%, 90%);
+}
+
+footer ul {
+
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    color: hsl(200, 70%, 40%);
+
+    list-style: none;
+}
+
+footer li {
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+footer li:hover {
+    color: hsl(200, 70%, 25%);
+}

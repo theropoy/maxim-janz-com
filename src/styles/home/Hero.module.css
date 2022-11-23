@@ -1,0 +1,152 @@
+.container {
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.langSwitch {
+	display: flex;
+
+	color: hsl(42, 65%, 50%);
+
+	border: 2px solid hsl(200, 56%, 70%);
+	border-radius: 0.4rem;
+
+	cursor: pointer;
+}
+
+.langSwitch div {
+	padding: 0.4rem 0;
+	width: 3rem;
+	display: flex;
+	justify-content: center;
+}
+
+.activee {
+	color: hsl(42, 100%, 70%);
+	background-color: hsl(200, 56%, 70%);
+}
+
+.main {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.pbContainer {
+	width: 14rem;
+	height: 14rem;
+	background-color: hsl(0, 0%, 50%);
+	overflow: hidden;
+
+	border-radius: 5rem;
+}
+
+.pb {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+@media (max-width: 700px) {
+	.main {
+		margin-top: 1.5rem;
+		flex-direction: column;
+	}
+
+	.pbContainer {
+		width: 9rem;
+		height: 9rem;
+
+		border-radius: 2.5rem;
+	}
+}
+
+.content {
+}
+
+.title {
+	font-size: 4rem;
+	color: hsl(0, 0%, 25%);
+}
+
+.lowerTitle {
+	font-size: 1.2rem;
+	color: hsl(0, 0%, 45%);
+}
+
+@media (max-width: 700px) {
+	.content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.title {
+		font-size: 3.25rem;
+		text-align: center;
+	}
+}
+
+.contactContainer {
+	margin-top: 1.5rem;
+
+	display: flex;
+	justify-content: center;
+}
+
+.contact {
+	padding: 0.7rem 1rem;
+	width: fit-content;
+
+	font-size: 1.1rem;
+	color: hsl(42, 80%, 15%);
+	background-color: hsl(42, 75%, 60%);
+	border: none;
+	border-radius: 0.3rem;
+
+	transition: var(--transition);
+	cursor: pointer;
+}
+
+.contact:hover {
+	background-color: hsl(42, 56%, 50%);
+}
+
+.nav {
+	margin-top: 2rem;
+	display: flex;
+	gap: 1.5rem;
+	flex-wrap: wrap;
+
+	list-style: none;
+}
+
+.nav li {
+	padding: 1rem 1rem;
+	font-size: 1.3rem;
+	color: hsl(200, 80%, 24%);
+	background-color: hsl(200, 56%, 70%);
+
+	border-radius: 0.4rem;
+	cursor: pointer;
+}
+
+.nav li:hover {
+	background-color: hsl(200, 56%, 68%);
+}
+
+@media (max-width: 700px) {
+	.nav {
+		gap: 0.5rem;
+	}
+	.nav li {
+		padding: 0.4rem 0.6rem;
+
+		font-size: 1rem;
+	}
+}

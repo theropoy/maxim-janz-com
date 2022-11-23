@@ -1,0 +1,121 @@
+.datenschutz {
+
+    width: 100vw;
+}
+
+
+.datenschutz-container {
+    margin: 3rem 10% 0 10%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.datenschutz-content {
+    padding: 1rem;
+
+    background: rgb(0,0,0);
+    background: linear-gradient(153deg, rgba(0,0,0,.3) 0%, rgba(66,66,66,.3) 100%);
+
+    border-radius: 1rem;
+}
+
+.datenschutz h2 {
+    font-size: 2rem;
+    color: rgb(255, 248, 248);
+    text-align: center;
+}
+
+.datenschutz h3 {
+    margin-top: 2rem;
+    margin-bottom: .5rem;
+
+    font-size: 1.4rem;
+    text-decoration: underline;
+    color: rgb(233, 233, 233);
+}
+
+.datenschutz h4 {
+    margin-top: 1.5rem;
+    margin-bottom: .5rem;
+
+    font-size: 1.3rem;
+    color: rgb(255, 236, 236);
+}
+
+.datenschutz h5 {
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+
+    font-size: 1rem;
+    color: white;
+    text-decoration: underline;
+}
+
+.datenschutz p {
+    font-size: 1rem;
+    color: white;
+}
+
+.datenschutz a {
+    color: white;
+    text-decoration: underline;
+}
+
+.datenschutz ul {
+    margin-top: .4rem;
+    margin-bottom: .4rem;
+    padding: .4rem;
+
+    font-size: 1rem;
+    color: white;
+}
+
+.datenschutz li {
+    margin-top: .2rem;
+}
+
+@media (max-width: 700px) {
+    .datenschutz h2 {
+        font-size: 2rem;
+        color: rgb(255, 248, 248);
+        text-align: center;
+    }
+    
+    .datenschutz h3 {
+        margin-top: 1.5rem;
+        margin-bottom: .5rem;
+    
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    .datenschutz h4 {
+    
+        font-size: 1rem;
+        text-align: center;
+    }
+    
+    .datenschutz h5 {
+        font-size: .9rem;
+        text-align: center;
+    }
+    
+    .datenschutz p {
+        font-size: .7rem;
+        text-align: start
+    }
+    
+    .datenschutz a {
+        text-decoration: underline;
+    }
+
+    .datenschutz ul {
+        margin-top: .4rem;
+        margin-bottom: .4rem;
+        padding: .4rem;
+    
+        font-size: .7rem;
+        color: white;
+    }
+}

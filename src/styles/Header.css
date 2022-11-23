@@ -1,0 +1,53 @@
+.visible-header {
+
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    padding: 1rem;
+
+    background-color: hsl(200, 100%, 44%);
+
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0 0 14px rgba(0, 0, 0, .3);
+}
+
+h1 {
+    color: white;
+
+    cursor: pointer;
+}
+
+
+.notVisible-header {
+    position: fixed;
+    top: 0;
+
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1s;
+}
+
+.notVisible-logo {
+    padding: .5rem;
+
+    background-color: hsl(200, 100%, 44%);
+
+    border-radius: 0 0 1rem 0;
+    box-shadow: 0 0 14px rgba(0, 0, 0, .3);
+}
+
+.notVisible-logo h1 {
+    letter-spacing: .2rem;
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
