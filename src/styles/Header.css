@@ -26,6 +26,7 @@ h1 {
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in;
 	animation-duration: 1s;
+	z-index: 3;
 }
 
 .notVisible-logo {
