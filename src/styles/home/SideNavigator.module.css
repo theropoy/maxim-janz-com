@@ -25,6 +25,7 @@
 	padding: 1rem;
 	display: flex;
 	gap: 0.4rem;
+	align-items: center;
 	color: #78c6ed;
 	background-color: white;
 
