@@ -8,19 +8,21 @@ import Skills from "./Skills";
 import Contact from "./Contact";
 
 import Helmet from "react-helmet";
+import SideNavigator from "./SideNavigator";
 
 interface Props {
 	setFooterSticky: (x: boolean) => void;
 	ger: boolean;
 }
 
-// This is the german version of the home page
+// This is the home page
 const Home: React.FC<Props> = ({ setFooterSticky, ger }) => {
 	useEffect(() => {
 		setFooterSticky(false);
 	}, []);
 
 	// Refs of the sections
+	const homeRef = useRef<null | HTMLDivElement>(null);
 	const aboutRef = useRef<null | HTMLDivElement>(null);
 	const skillsRef = useRef<null | HTMLDivElement>(null);
 	const portfolioRef = useRef<null | HTMLDivElement>(null);
@@ -51,7 +53,8 @@ const Home: React.FC<Props> = ({ setFooterSticky, ger }) => {
 				<meta name="keywords" content={ger ? helmetData.canonical.ger : helmetData.canonical.eng} />
 				<html lang={ger ? helmetData.lang.ger : helmetData.lang.eng}></html>
 			</Helmet>
-			<div id="header-hero">
+
+			<div id="header-hero" ref={homeRef}>
 				<Header />
 				<Hero
 					aboutRef={aboutRef}
@@ -66,6 +69,14 @@ const Home: React.FC<Props> = ({ setFooterSticky, ger }) => {
 			<Skills reff={skillsRef} ger={ger} />
 			<Portfolio reff={portfolioRef} ger={ger} />
 			<Contact reff={contactRef} ger={ger} />
+			<SideNavigator
+				homeRef={homeRef}
+				aboutRef={aboutRef}
+				skillsRef={skillsRef}
+				portfolioRef={portfolioRef}
+				contactRef={contactRef}
+				ger={ger}
+			/>
 		</div>
 	);
 };
