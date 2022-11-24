@@ -11,10 +11,11 @@ import Helmet from "react-helmet";
 
 interface Props {
 	setFooterSticky: (x: boolean) => void;
+	ger: boolean;
 }
 
 // This is the german version of the home page
-const Home: React.FC<Props> = ({ setFooterSticky }) => {
+const Home: React.FC<Props> = ({ setFooterSticky, ger }) => {
 	useEffect(() => {
 		setFooterSticky(false);
 	}, []);
@@ -25,23 +26,30 @@ const Home: React.FC<Props> = ({ setFooterSticky }) => {
 	const portfolioRef = useRef<null | HTMLDivElement>(null);
 	const contactRef = useRef<null | HTMLDivElement>(null);
 
+	// Data for helmet for the different languages
+	const helmetData = {
+		title: { ger: "Webentwickler | Maxim Janz", eng: "Web Developer | Maxim Janz" },
+		description: {
+			ger: "Repräsentieren Sie Ihr Unternehmen mit einer modernen Webseite! Wir erstellen oder modernisieren Ihr Wunsch-Webseite.",
+			eng: "Represent your business with a modern website! I will develop or upgrade your dream website.",
+		},
+		canonical: { ger: "https://maxim-janz.com/", eng: "https://maxim-janz.com/eng" },
+		keywords: {
+			ger: "webentwickler, webdesign, web design, entwickler, developer, webseite erstellen",
+			eng: "web developer, webdesign, web design, developer, make website, develope website, wordpress",
+		},
+		lang: { ger: "de", eng: "en" },
+	};
+
 	return (
 		<div className="home">
 			<Helmet>
-				<title>{"Webentwickler | Maxim Janz"}</title>
-				<meta
-					name="description"
-					content={
-						"Repräsentieren Sie Ihr Unternehmen mit einer modernen Webseite! Wir erstellen oder modernisieren Ihr Wunsch-Webseite."
-					}
-				/>
+				<title>{ger ? helmetData.title.ger : helmetData.title.eng}</title>
+				<meta name="description" content={ger ? helmetData.description.ger : helmetData.description.eng} />
 				<meta name="robots" content="index, follow" />
 				<link rel="canonical" href={"https://maxim-janz.com/"} />
-				<meta
-					name="keywords"
-					content="webentwickler, webdesign, web design, entwickler, developer, webseite erstellen"
-				/>
-				<html lang="de"></html>
+				<meta name="keywords" content={ger ? helmetData.canonical.ger : helmetData.canonical.eng} />
+				<html lang={ger ? helmetData.lang.ger : helmetData.lang.eng}></html>
 			</Helmet>
 			<div id="header-hero">
 				<Header />
@@ -50,14 +58,14 @@ const Home: React.FC<Props> = ({ setFooterSticky }) => {
 					skillsRef={skillsRef}
 					portfolioRef={portfolioRef}
 					contactRef={contactRef}
-					ger={true}
+					ger={ger}
 				/>
 			</div>
 
-			<About reff={aboutRef} ger={true} />
-			<Skills reff={skillsRef} ger={true} />
-			<Portfolio reff={portfolioRef} ger={true} />
-			<Contact reff={contactRef} ger={true} />
+			<About reff={aboutRef} ger={ger} />
+			<Skills reff={skillsRef} ger={ger} />
+			<Portfolio reff={portfolioRef} ger={ger} />
+			<Contact reff={contactRef} ger={ger} />
 		</div>
 	);
 };
