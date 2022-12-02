@@ -12,45 +12,48 @@ import nodejsImg from "../../assets/skills/nodejs.png";
 import personalImg from "../../assets/skills/personal.svg";
 import styles from "../../styles/home/Skills.module.css";
 
+const text = {
+	skills: { ger: "Kenntnisse/ Erfahrungen", eng: "Skills" },
+	languages: { ger: "Sprachen", eng: "Programming Languages" },
+	tech: { ger: "Technologien", eng: "Technologies" },
+};
+// list of programming languages
+const listOfLang = ["Java", "Javascript", "Typescript", "Python", "Lua", "Julia", "Kotlin", "C#", "GDScript"];
+
+// list of technologies
+const listOfTech = [
+	{ name: "Unity3D", img: unity3dImg },
+	{ name: "Wordpress", img: wordpressImg },
+	{ name: "Redux", img: reduxImg },
+	{ name: "Godot", img: godotImg },
+	{ name: "Solar2D", img: solar2dImg },
+	{ name: "Tensorflow", img: tensorflowImg },
+	{ name: "ReactJs", img: reactImg },
+	{ name: "NextJs", img: nextjsImg },
+	{ name: "NodeJs", img: nodejsImg },
+	{ name: "React Native", img: reactImg },
+];
+
+const createTechItem = (name: string, img: string, key: number): JSX.Element => {
+	return (
+		<div key={key} className={styles.tech}>
+			<div className={styles.techImg}>
+				<img src={img} alt="" />
+			</div>
+			<p>{name}</p>
+		</div>
+	);
+};
 interface skillsProps {
 	reff: React.MutableRefObject<HTMLDivElement | null>;
 	ger: boolean;
 }
-
 const Skills: React.FC<skillsProps> = ({ reff, ger }) => {
-	// list of programming languages
-	const listOfLang = ["Java", "Javascript", "Typescript", "Python", "Lua", "Julia", "Kotlin", "C#", "GDScript"];
-
-	// list of technologies
-	const listOfTech = [
-		{ name: "Unity3D", img: unity3dImg },
-		{ name: "Wordpress", img: wordpressImg },
-		{ name: "Redux", img: reduxImg },
-		{ name: "Godot", img: godotImg },
-		{ name: "Solar2D", img: solar2dImg },
-		{ name: "Tensorflow", img: tensorflowImg },
-		{ name: "ReactJs", img: reactImg },
-		{ name: "NextJs", img: nextjsImg },
-		{ name: "NodeJs", img: nodejsImg },
-		{ name: "React Native", img: reactImg },
-	];
-
-	const createTechItem = (name: string, img: string, key: number): JSX.Element => {
-		return (
-			<div key={key} className={styles.tech}>
-				<div className={styles.techImg}>
-					<img src={img} alt="" />
-				</div>
-				<p>{name}</p>
-			</div>
-		);
-	};
-
 	return (
 		<section className={styles.container} ref={reff}>
 			<div className="h2-container">
 				<h2>
-					{ger ? "Kenntnisse/ Erfahrungen" : "Skills"}
+					{ger ? text.skills.ger : text.skills.eng}
 					<hr />
 				</h2>
 			</div>
@@ -58,7 +61,7 @@ const Skills: React.FC<skillsProps> = ({ reff, ger }) => {
 			<div className={styles.part}>
 				<div className={styles.subTitle}>
 					<h3>
-						{ger ? "Sprachen" : "Programming Languages"}
+						{ger ? text.languages.ger : text.languages.eng}
 						<hr />
 					</h3>
 				</div>
@@ -74,7 +77,7 @@ const Skills: React.FC<skillsProps> = ({ reff, ger }) => {
 			<div className={styles.part}>
 				<div className={styles.subTitle}>
 					<h3>
-						{ger ? "Technologien" : "Technologies"}
+						{ger ? text.tech.ger : text.tech.eng}
 						<hr />
 					</h3>
 				</div>
@@ -88,4 +91,4 @@ const Skills: React.FC<skillsProps> = ({ reff, ger }) => {
 	);
 };
 
-export default Skills;
+export default React.memo(Skills);

@@ -9,6 +9,35 @@ import {
 	FaGithub as GithubIcon,
 } from "react-icons/fa";
 
+// List of contact information
+const contactList = [
+	{ img: WhatsappIcon, txt: "+49 1525 6917442", link: "https://wa.me/+4915256917442" },
+	{ img: InstagramIcon, txt: "@maxim_janz", link: "https://www.instagram.com/maxim_janz/" },
+	{ img: MailIcon, txt: "info@maxim-janz.com", link: "mailto:info@maxim-janz.com" },
+	{ img: GithubIcon, txt: "theropoy", link: "https://github.com/theropoy" },
+];
+
+// creates a contact information item
+const makeInfo = (item: { img: any; txt: string; link: string }, key: number) => {
+	const openLink = (link: string) => window.open(link);
+	return (
+		<div key={key} onClick={(e) => openLink(item.link)} className={styles.info}>
+			<item.img className={styles.infoIcon} />
+			<p>{item.txt}</p>
+		</div>
+	);
+};
+
+const text = {
+	contact: { ger: "Kontakt", eng: "Contact" },
+	writeMe: { ger: "Schreiben Sie mir gerne", eng: "Please write me" },
+	name: { ger: "Ihr Name", eng: "Your name" },
+	email: { ger: "Ihre E-Mail", eng: "Your email" },
+	message: { ger: "Ihre Nachricht", eng: "Your message" },
+	button: { ger: "Versenden", eng: "Send" },
+	fillOut: { ger: "Bitte alles Ausfüllen", eng: "Please fill out everything" },
+};
+
 interface Props {
 	reff: React.MutableRefObject<HTMLDivElement | null>;
 	ger: boolean;
@@ -44,39 +73,17 @@ const Contact: React.FC<Props> = ({ reff, ger }) => {
 		}
 	}, [name, mail, msg]);
 
-	// List of contact information
-	const contactList = [
-		{ img: WhatsappIcon, txt: "+49 1525 6917442", link: "https://wa.me/+4915256917442" },
-		{ img: InstagramIcon, txt: "@maxim_janz", link: "https://www.instagram.com/maxim_janz/" },
-		{ img: MailIcon, txt: "info@maxim-janz.com", link: "mailto:info@maxim-janz.com" },
-		{ img: GithubIcon, txt: "theropoy", link: "https://github.com/theropoy" },
-	];
-
-	// creates a contact information item
-	const makeInfo = (item: { img: any; txt: string; link: string }, key: number) => {
-		return (
-			<div key={key} onClick={(e) => openLink(item.link)} className={styles.info}>
-				<item.img className={styles.infoIcon} />
-				<p>{item.txt}</p>
-			</div>
-		);
-	};
-
-	const openLink = (link: string) => {
-		window.open(link);
-	};
-
 	return (
 		<section className={styles.container} ref={reff}>
 			<div className="h2-container">
 				<h2>
-					{ger ? "Kontakt" : "Contact"}
+					{ger ? text.contact.ger : text.contact.eng}
 					<hr className="h2-divider" />
 				</h2>
 			</div>
 			<div className={styles.content}>
 				<div className={styles.left}>
-					<h4>{ger ? "Schreiben Sie mir gerne" : "Please write me"}</h4>
+					<h4>{ger ? text.writeMe.ger : text.contact.eng}</h4>
 					<img src={contactImg} alt="" />
 				</div>
 				<div className={styles.right}>{contactList.map((item, key) => makeInfo(item, key))}</div>
@@ -85,14 +92,14 @@ const Contact: React.FC<Props> = ({ reff, ger }) => {
 				<input
 					type="text"
 					className={styles.inputName}
-					placeholder={ger ? "Ihr Name" : "Your name"}
+					placeholder={ger ? text.name.ger : text.name.eng}
 					onChange={(e) => setName(e.target.value)}
 					value={name}
 				/>
 				<input
 					type="text"
 					className={styles.inputMail}
-					placeholder={ger ? "Ihre E-Mail" : "Your email"}
+					placeholder={ger ? text.email.ger : text.email.eng}
 					onChange={(e) => setMail(e.target.value)}
 					value={mail}
 				/>
@@ -101,7 +108,7 @@ const Contact: React.FC<Props> = ({ reff, ger }) => {
 					className={styles.inputText}
 					cols={30}
 					rows={10}
-					placeholder={ger ? "Ihre Nachricht" : "Your message"}
+					placeholder={ger ? text.message.ger : text.message.eng}
 					onChange={(e) => setMsg(e.target.value)}
 					value={msg}
 				></textarea>
@@ -111,11 +118,11 @@ const Contact: React.FC<Props> = ({ reff, ger }) => {
 				>
 					{buttonActive
 						? ger
-							? "Versenden"
-							: "Send"
+							? text.button.ger
+							: text.button.eng
 						: ger
-						? "Bitte alles Ausfüllen"
-						: "Please fill out everything"}
+						? text.fillOut.ger
+						: text.fillOut.eng}
 				</button>
 			</form>
 		</section>

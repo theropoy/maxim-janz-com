@@ -10,6 +10,21 @@ import Contact from "./Contact";
 import Helmet from "react-helmet";
 import SideNavigator from "./SideNavigator";
 
+// Data for helmet for the different languages
+const helmetData = {
+	title: { ger: "Webentwickler | Maxim Janz", eng: "Web Developer | Maxim Janz" },
+	description: {
+		ger: "Repräsentieren Sie Ihr Unternehmen mit einer modernen Webseite! Wir erstellen oder modernisieren Ihr Wunsch-Webseite.",
+		eng: "Represent your business with a modern website! I will develop or upgrade your dream website.",
+	},
+	canonical: { ger: "https://maxim-janz.com/", eng: "https://maxim-janz.com/eng" },
+	keywords: {
+		ger: "webentwickler, webdesign, web design, entwickler, developer, webseite erstellen",
+		eng: "web developer, webdesign, web design, developer, make website, develope website, wordpress",
+	},
+	lang: { ger: "de", eng: "en" },
+};
+
 interface Props {
 	setFooterSticky: (x: boolean) => void;
 	ger: boolean;
@@ -27,21 +42,6 @@ const Home: React.FC<Props> = ({ setFooterSticky, ger }) => {
 	const skillsRef = useRef<null | HTMLDivElement>(null);
 	const portfolioRef = useRef<null | HTMLDivElement>(null);
 	const contactRef = useRef<null | HTMLDivElement>(null);
-
-	// Data for helmet for the different languages
-	const helmetData = {
-		title: { ger: "Webentwickler | Maxim Janz", eng: "Web Developer | Maxim Janz" },
-		description: {
-			ger: "Repräsentieren Sie Ihr Unternehmen mit einer modernen Webseite! Wir erstellen oder modernisieren Ihr Wunsch-Webseite.",
-			eng: "Represent your business with a modern website! I will develop or upgrade your dream website.",
-		},
-		canonical: { ger: "https://maxim-janz.com/", eng: "https://maxim-janz.com/eng" },
-		keywords: {
-			ger: "webentwickler, webdesign, web design, entwickler, developer, webseite erstellen",
-			eng: "web developer, webdesign, web design, developer, make website, develope website, wordpress",
-		},
-		lang: { ger: "de", eng: "en" },
-	};
 
 	return (
 		<div className="home">

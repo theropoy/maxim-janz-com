@@ -3,6 +3,29 @@ import styles from "../../styles/home/Hero.module.css";
 import pbImg from "../../assets/home/pb.png";
 import { useNavigate } from "react-router-dom";
 
+const text = {
+	title: {
+		ger: (
+			<>
+				Hi,
+				<br />
+				Ich bin Maxim,
+				<br />
+				ein Entwickler.
+			</>
+		),
+		eng: (
+			<>
+				Hi,
+				<br />
+				I'm Maxim,
+				<br />a developer.
+			</>
+		),
+	},
+	contact: { ger: "Kontakt", eng: "Contact" },
+};
+
 interface Props {
 	aboutRef: React.MutableRefObject<HTMLDivElement | null>;
 	skillsRef: React.MutableRefObject<HTMLDivElement | null>;
@@ -28,29 +51,6 @@ const Hero: React.FC<Props> = ({ aboutRef, skillsRef, portfolioRef, contactRef, 
 		if (ref.current !== null) {
 			ref.current.scrollIntoView()!;
 		}
-	};
-
-	const text = {
-		title: {
-			ger: (
-				<>
-					Hi,
-					<br />
-					Ich bin Maxim,
-					<br />
-					ein Entwickler.
-				</>
-			),
-			eng: (
-				<>
-					Hi,
-					<br />
-					I'm Maxim,
-					<br />a developer.
-				</>
-			),
-		},
-		contact: { ger: "Kontakt", eng: "Contact" },
 	};
 
 	return (

@@ -23,6 +23,35 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay } from "swiper";
 
+// List of project websites
+const listOfImagesWebsite = [
+	{ img: gymImg, color: true },
+	{ img: hotelImg, color: false },
+	{ img: restaurantImg, color: true },
+	{ img: weatherImg, color: false },
+	{ img: isekaiImg, color: true },
+	{ img: metalImg, color: false },
+];
+
+// List of project apps
+const listOfImagesMobile = [
+	{ path: mobileImg, txt: "Maze & Cube", color: false },
+	{ path: mobile1Img, txt: "Virus Destroyer", color: true },
+	{ path: mobile2Img, txt: "StuckUp", color: false },
+	{ path: mobile3Img, txt: "Isekai Now", color: true },
+];
+
+// List of project miscellaneous
+const listOfImagesOther = [
+	{ path: andereImg, txt: "Web: Maze & Cube", color: true },
+	{ path: andere1Img, txt: "PC: Dungeons & Adventures", color: false },
+];
+
+const text = {
+	website: { ger: "WEBSEITEN", eng: "WEBSITES" },
+	others: { ger: "ANDERES", eng: "OTHER" },
+};
+
 interface Props {
 	reff: React.MutableRefObject<HTMLDivElement | null>;
 	ger: boolean;
@@ -31,30 +60,6 @@ interface Props {
 // Part of home
 // shows all projects
 const Portfolio: React.FC<Props> = ({ reff, ger }) => {
-	// List of project websites
-	const listOfImagesWebsite = [
-		{ img: gymImg, color: true },
-		{ img: hotelImg, color: false },
-		{ img: restaurantImg, color: true },
-		{ img: weatherImg, color: false },
-		{ img: isekaiImg, color: true },
-		{ img: metalImg, color: false },
-	];
-
-	// List of project apps
-	const listOfImagesMobile = [
-		{ path: mobileImg, txt: "Maze & Cube", color: false },
-		{ path: mobile1Img, txt: "Virus Destroyer", color: true },
-		{ path: mobile2Img, txt: "StuckUp", color: false },
-		{ path: mobile3Img, txt: "Isekai Now", color: true },
-	];
-
-	// List of project miscellaneous
-	const listOfImagesOther = [
-		{ path: andereImg, txt: "Web: Maze & Cube", color: true },
-		{ path: andere1Img, txt: "PC: Dungeons & Adventures", color: false },
-	];
-
 	// State tracks if website is viewed on small screen
 	const [mobile, setMobile] = useState<boolean>(false);
 
@@ -84,14 +89,14 @@ const Portfolio: React.FC<Props> = ({ reff, ger }) => {
 		<section className={styles.container} ref={reff}>
 			<div className="h2-container">
 				<h2>
-					{ger ? "Portfolio" : "Portfolio"}
+					Portfolio
 					<hr />
 				</h2>
 			</div>
 			<div className={styles.part}>
 				<div className={styles.subTitle}>
 					<h3>
-						{ger ? "WEBSEITEN" : "WEBSITES"}
+						{ger ? text.website.ger : text.website.eng}
 						<hr />
 					</h3>
 				</div>
@@ -129,7 +134,7 @@ const Portfolio: React.FC<Props> = ({ reff, ger }) => {
 			<div className={styles.part}>
 				<div className={styles.subTitle}>
 					<h3>
-						APP
+						APPS
 						<hr />
 					</h3>
 				</div>
@@ -155,7 +160,7 @@ const Portfolio: React.FC<Props> = ({ reff, ger }) => {
 			<div className={styles.part}>
 				<div className={styles.subTitle}>
 					<h3>
-						{ger ? "ANDERES" : "OTHER"}
+						{ger ? text.others.ger : text.website.eng}
 						<hr />
 					</h3>
 				</div>
