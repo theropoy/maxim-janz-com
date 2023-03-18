@@ -24,7 +24,6 @@ const listOfLang = ["Java", "Javascript", "Typescript", "Python", "Lua", "Julia"
 const listOfTech = [
 	{ name: "Unity3D", img: unity3dImg },
 	{ name: "Wordpress", img: wordpressImg },
-	{ name: "Redux", img: reduxImg },
 	{ name: "Godot", img: godotImg },
 	{ name: "Solar2D", img: solar2dImg },
 	{ name: "Tensorflow", img: tensorflowImg },

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../../styles/home/Hero.module.css";
-import pbImg from "../../assets/home/pb.png";
+import pbImg from "../../assets/home/pb.jpg";
 import { useNavigate } from "react-router-dom";
 
 const text = {
